@@ -1,52 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ASTRA MORI — Mailing List</title>
-  <meta name="description" content="ASTRA MORI — Mailing List" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ASTRA MORI — Mailing List</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
 
-  <style>
-    :root { --overlay: rgba(0,0,0,0.55); --text: #fff; --accent: #8b5cf6; }
-    * { box-sizing: border-box; }
-    html, body { height: 100%; margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
-    body { color: var(--text); background: #000; }
+<style>
+  :root { --overlay: rgba(0,0,0,0.55); --text: #fff; --accent: #8b5cf6; }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+  body { color: var(--text); background: #000; }
 
-    .bg {
-      position: fixed; inset: 0;
-      background: linear-gradient(var(--overlay), var(--overlay)), url("./Cosmic_Grief_Final.png") center / cover no-repeat;
-      z-index: -1;
-    }
+  .bg {
+    position: fixed; inset: 0;
+    background: linear-gradient(var(--overlay), var(--overlay)), url("./Cosmic_Grief_Final.png") center / cover no-repeat;
+    z-index: -1;
+  }
 
-    .wrap {
-      min-height: 100vh;
-      display: grid;
-      grid-template-rows: auto 1fr auto;
-      padding: 2rem;
-      gap: 1.5rem;
-    }
+  .wrap { min-height: 100vh; display: grid; grid-template-rows: auto 1fr auto; padding: 2rem; }
+  .topbar { display:flex; justify-content: space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
+  .brand { font-weight:900; letter-spacing:.15em; text-transform:uppercase; color:#fff; text-decoration:none; }
 
-    .topbar {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 1rem; flex-wrap: wrap;
-    }
+  .nav a {
+    padding:.55rem .95rem; border-radius:999px;
+    border:1px solid rgba(255,255,255,.25);
+    background:rgba(0,0,0,.35); color:#fff; text-decoration:none;
+  }
 
-    .brand {
-      font-weight: 900;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: #fff;
-      text-shadow: 0 10px 40px rgba(0,0,0,0.6);
-    }
+  main { display:grid; place-items:center; }
+  .card {
+    width:min(980px,100%); border-radius:24px; border:1px solid rgba(255,255,255,.18);
+    background:rgba(0,0,0,.35); padding:1.5rem; display:grid; place-items:center;
+  }
 
-    .nav { display: flex; gap: .75rem; flex-wrap: wrap; }
-    .nav a {
-      padding: .55rem .95rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.25);
-      backg
+  footer { text-align:center; opacity:.8; font-size:.9rem; }
+
+  /* ---- MailerLite safe fixes ---- */
+  #mlb2-35975538 { width:100%!important; max-width:560px!important; margin:0 auto!important; }
+  #mlb2-35975538 .ml-form-embedWrapper { width:100%!important; max-width:560px!important; border-radius:18px!important; }
+  #mlb2-35975538 h4, #mlb2-35975538 p, #mlb2-35975538 label, #mlb2-35975538 span, #mlb2-35975538 a { color:#000!important; }
+  #mlb2-35975538 .ml-form-embedBody, #mlb2-35975538 .ml-form-successBody { padding:28px!important; }
+  #mlb2-35975538 .ml-form-fieldRow { margin:14px 0!important; }
+  #mlb2-35975538 input[type=email] { padding:12px!important; border-radius:12px!important; }
+  #mlb2-35975538 .ml-form-embedSubmit button { border-radius:999px!important; padding:12px!important; }
+</style>
+
+<!-- MailerLite fonts -->
+<style>@import url("https://assets.mlcdn.com/fonts.css");</style>
+
+<!-- FIXED invalid CSS -->
+<style>
+.g-recaptcha { transform: scale(1); transform-origin:0 0; height:auto; }
+</style>
+
+</head>
+<body>
+
+<div class="bg"></div>
+
+<div class="wrap">
+  <div class="topbar">
+    <a class="brand" href="./index.html">ASTRA MORI</a>
+    <nav class="nav">
+      <a href="./listen.html">Listen</a>
+      <a href="./shows.html">Shows</a>
+      <a href="./mailing-list.html">Mailing List</a>
+    </nav>
+  </div>
+
+  <main>
+    <section class="card">
+
+      <!-- MAILERLITE EMBED -->
+      <div id="mlb2-35975538" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-35975538">
+        <div class="ml-form-align-center">
+          <div class="ml-form-embedWrapper embedForm">
+            <div class="ml-form-embedBody row-form">
+              <div class="ml-form-embedContent">
+                <h4>Receive Transmissions</h4>
+                <p>New music, shows, and rare updates from the Astra Mori universe.</p>
+              </div>
+
+              <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2050670/forms/177090506946250518/subscribe" method="post" target="_blank">
+                <div class="ml-form-formContent">
+                  <div class="ml-form-fieldRow">
+                    <input type="email" name="fields[email]" placeholder="Email" required>
+                  </div>
+                </div>
+
+                <input type="hidden" name="ml-submit" value="1">
+                <div class="ml-form-embedSubmit">
+                  <button type="submit">Send Me the Signal</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="ml-form-successBody" style="display:none;">
+              <h4>Thank you!</h4>
+              <p>You have successfully joined our subscriber list.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /MAILERLITE -->
+
+    </section>
+  </main>
+
+  <footer>© <span id="year"></span> ASTRA MORI</footer>
+</div>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+<script src="https://groot.mailerlite.com/js/w/webforms.min.js"></script>
+<script>fetch("https://assets.mailerlite.com/jsonp/2050670/forms/177090506946250518/takel")</script>
+
+</body>
+</html>
