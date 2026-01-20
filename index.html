@@ -23,19 +23,14 @@
       background: #000;
     }
 
-    /* Fullscreen background with slow cosmic drift */
+    /* Fullscreen background */
     .bg {
       position: fixed;
       inset: 0;
       background: linear-gradient(var(--overlay), var(--overlay)), url("./Cosmic_Grief_Final.png") center / cover no-repeat;
       z-index: -1;
-      will-change: transform, background-position;
-      animation: cosmic-drift 120s ease-in-out infinite alternate;
-      transform: scale(1.05);
     }
 
-    @keyframes cosmic-drift {
-      0%   { background-position: 50% 50%; transform: scale(1.05) translate3d(0,0,0); }
       50%  { background-position: 52% 48%; transform: scale(1.06) translate3d(-1%, 1%, 0); }
       100% { background-position: 48% 52%; transform: scale(1.07) translate3d(1%, -1%, 0); }
     }
@@ -141,7 +136,7 @@
     <main>
       <section class="hero">
         <h1>ASTRA MORI</h1>
-        <p>A signal is coming. Stay close.</p>
+        <p>New music soon. Stay close.</p>
         <div class="cta">
           <a class="btn" href="./listen.html" aria-label="Listen">Listen</a>
           <a class="btn" href="./shows.html" aria-label="Shows">Shows</a>
@@ -157,25 +152,7 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Subtle mouse parallax for extra depth
-    const bg = document.querySelector('.bg');
-    let targetX = 0, targetY = 0, currentX = 0, currentY = 0;
-
-    window.addEventListener('mousemove', (e) => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 2; // -1..1
-      const y = (e.clientY / window.innerHeight - 0.5) * 2;
-      targetX = x * 8; // intensity
-      targetY = y * 8;
-    });
-
-    function animateParallax() {
-      currentX += (targetX - currentX) * 0.05;
-      currentY += (targetY - currentY) * 0.05;
-      bg.style.transform = `scale(1.07) translate3d(${currentX}px, ${currentY}px, 0)`;
-      requestAnimationFrame(animateParallax);
-    }
-    animateParallax();
   </script>
 </body>
 </html>
+
