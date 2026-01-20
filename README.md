@@ -1,2 +1,184 @@
-# astramori
-Astra Mori Website
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ASTRA MORI</title>
+  <meta name="description" content="Astromory — Official Band Site" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --overlay: rgba(0,0,0,0.45);
+      --text: #ffffff;
+      --accent: #8b5cf6; /* cosmic purple */
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+
+    body {
+      color: var(--text);
+      background: #000;
+    }
+
+    /* Fullscreen background with slow cosmic drift */
+    .bg {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(var(--overlay), var(--overlay)), url("./Cosmic_Grief_Final.png") center / cover no-repeat;
+      z-index: -1;
+      will-change: transform, background-position;
+      animation: cosmic-drift 120s ease-in-out infinite alternate;
+      transform: scale(1.05);
+    }
+
+    @keyframes cosmic-drift {
+      0%   { background-position: 50% 50%; transform: scale(1.05) translate3d(0,0,0); }
+      50%  { background-position: 52% 48%; transform: scale(1.06) translate3d(-1%, 1%, 0); }
+      100% { background-position: 48% 52%; transform: scale(1.07) translate3d(1%, -1%, 0); }
+    }
+
+    /* Layout */
+    .wrap {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      padding: 2rem;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      line-height: 1;
+      text-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    }
+
+    .tagline {
+      opacity: 0.9;
+      font-weight: 400;
+    }
+
+    main {
+      display: grid;
+      place-items: center;
+      text-align: center;
+    }
+
+    .hero {
+      max-width: 1000px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-weight: 900;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-size: clamp(3rem, 10vw, 7rem);
+      line-height: 0.95;
+      text-shadow: 0 20px 60px rgba(0,0,0,0.75);
+    }
+
+    .hero p {
+      margin-top: 1rem;
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      opacity: 0.9;
+    }
+
+    .cta {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.8rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.35);
+      background: rgba(0,0,0,0.4);
+      color: #fff;
+      text-decoration: none;
+      backdrop-filter: blur(6px);
+      transition: transform 120ms ease, background 120ms ease, border 120ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      background: rgba(0,0,0,0.6);
+      border-color: var(--accent);
+    }
+
+    footer {
+      text-align: center;
+      opacity: 0.8;
+      font-size: 0.9rem;
+    }
+
+    /* Mobile tweaks */
+    @media (max-width: 640px) {
+      .wrap { padding: 1.25rem; }
+      header { flex-direction: column; gap: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+
+  <div class="wrap">
+    <header>
+      <div class="logo">ASTRA MORI</div>
+      <div class="tagline">Cosmic metal. Grief, but louder.</div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h1>ASTRA MORI</h1>
+        <p>New music soon. Stay close.</p>
+        <div class="cta">
+          <a class="btn" href="#" aria-label="Listen">Listen</a>
+          <a class="btn" href="#" aria-label="Shows">Shows</a>
+          <a class="btn" href="#" aria-label="Mailing List">Mailing List</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © <span id="year"></span> ASTRA MORI
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Subtle mouse parallax for extra depth
+    const bg = document.querySelector('.bg');
+    let targetX = 0, targetY = 0, currentX = 0, currentY = 0;
+
+    window.addEventListener('mousemove', (e) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 2; // -1..1
+      const y = (e.clientY / window.innerHeight - 0.5) * 2;
+      targetX = x * 8; // intensity
+      targetY = y * 8;
+    });
+
+    function animateParallax() {
+      currentX += (targetX - currentX) * 0.05;
+      currentY += (targetY - currentY) * 0.05;
+      bg.style.transform = `scale(1.07) translate3d(${currentX}px, ${currentY}px, 0)`;
+      requestAnimationFrame(animateParallax);
+    }
+    animateParallax();
+  </script>
+</body>
+</html>
