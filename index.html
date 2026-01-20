@@ -23,14 +23,20 @@
       z-index: -1;
     }
 
+    /* FIX: flex layout so main is truly centered */
     .wrap {
       min-height: 100vh;
-      display: grid;
-      grid-template-rows: auto 1fr auto;
+      display: flex;
+      flex-direction: column;
       padding: 2rem;
     }
 
-    main { display: grid; place-items: center; text-align: center; }
+    main {
+      flex: 1;
+      display: grid;
+      place-items: center;
+      text-align: center;
+    }
 
     .hero h1 {
       margin: 0;
@@ -43,7 +49,7 @@
 
     .hero p {
       margin-top: 1rem;
-      font-size: 1.2rem;
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
       opacity: 0.9;
     }
 
@@ -62,9 +68,20 @@
       background: rgba(0,0,0,0.4);
       color: #fff;
       text-decoration: none;
+      transition: transform 120ms ease, background 120ms ease, border 120ms ease;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      background: rgba(0,0,0,0.6);
+      border-color: var(--accent);
     }
 
-    footer { text-align: center; opacity: .8; font-size: .9rem; }
+    footer { text-align: center; opacity: .8; font-size: .9rem; padding-bottom: .5rem; }
+
+    @media (max-width: 640px) {
+      .wrap { padding: 1.25rem; }
+      .hero h1 { letter-spacing: 0.18em; }
+    }
   </style>
 </head>
 <body>
@@ -75,7 +92,7 @@
   <main>
     <section class="hero">
       <h1>ASTRA MORI</h1>
-      <p>New music soon. Stay close.</p>
+      <p>A signal is coming. Stay close.</p>
       <div class="cta">
         <a class="btn" href="./listen.html">Listen</a>
         <a class="btn" href="./shows.html">Shows</a>
@@ -93,4 +110,3 @@
 
 </body>
 </html>
-
